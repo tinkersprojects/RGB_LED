@@ -1,0 +1,38 @@
+
+# KEYWORD1 
+RGB_LED	        KEYWORD1
+ 
+# KEYWORD2 
+set             KEYWORD2
+setSpeed        KEYWORD2
+fadeTo          KEYWORD2
+setFunction     KEYWORD2
+setRandom       KEYWORD2
+setColour       KEYWORD2
+fadeToColour    KEYWORD2
+hasFinished     KEYWORD2
+run             KEYWORD2
+stop            KEYWORD2
+
+# KEYWORD3 
+
+# Constants colours
+Black	        Constants
+White	        Constants
+Red	            Constants
+Green	        Constants
+Blue	        Constants
+Yellow	        Constants
+Purple	        Constants
+Aqua	        Constants
+
+# Constants functions
+Random	        Constants
+Solid	        Constants
+Fade	        Constants
+FadeRandom	    Constants
+Step1	        Constants
+Step2	        Constants
+StepRandom	    Constants
+
+#CommandReg	    LITERAL1
