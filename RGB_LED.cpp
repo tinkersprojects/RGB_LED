@@ -145,8 +145,61 @@ void RGB_LED::setRandom()
     function=Random;
 }
 
+void RGB_LED::setPercentFade(float FadeValue)
+{
+    if(FadeValue>1)FadeValue=1;
+    if(FadeValue<0)FadeValue=0;
+
+    double diff = double(PercentFade)*double(Speed);
+    starting_time = millis()-diff;
+}
+
+void RGB_LED::setFunctionCount(int FunctionCount)
+{
+    count = FunctionCount;
+}
 
 
+/******************* GET *******************/
+
+unsigned long RGB_LED::getSpeed()
+{
+    return Speed;
+}
+
+float RGB_LED::getPercentFade()
+{
+    unsigned long diff = millis()-starting_time;
+    float PercentFade = double(diff)/double(Speed);
+    if(PercentFade>1)PercentFade=1;
+    return PercentFade;
+}
+
+byte RGB_LED::getFunction()
+{
+   return function;
+}
+
+int RGB_LED::getFunctionCount()
+{
+   return count;
+}
+
+byte RGB_LED::getCurrentRValue()
+{
+   return R_Current_value;
+}
+
+byte RGB_LED::getCurrentGValue()
+{
+   return G_Current_value;
+}
+
+byte RGB_LED::getCurrentRValue()
+{
+   return R_Current_value;
+}
+        
 /******************* CHECKING *******************/
 
 boolean RGB_LED::hasFinished()

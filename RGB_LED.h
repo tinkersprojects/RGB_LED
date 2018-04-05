@@ -38,12 +38,22 @@ class RGB_LED
         // SET 
         void set(byte Rvalue,byte Gvalue,byte Bvalue);
         void setSpeed(unsigned long speedValue);
+        void setPercentFade(float FadeValue);
         void fadeTo(byte Rvalue,byte Gvalue,byte Bvalue,unsigned long speedValue);
         void setFunction(byte functionValue);
         void setRandom();
         void setColour(byte colour);
         void fadeToColour(byte colour,unsigned long speedValue);
         
+        //GET
+        unsigned long getSpeed();
+        float getPercentFade();
+        byte getFunction();
+        byte getCurrentRValue();
+        byte getCurrentGValue();
+        byte getCurrentRValue();
+        int getFunctionCount();
+
         // CHECKING 
         boolean hasFinished();
         
