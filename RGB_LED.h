@@ -60,6 +60,7 @@ class RGB_LED
         // COMMANDS 
         void run();
         void stop();
+        void delay(unsigned long delayValue);
         
     private:
         byte R_Pin;

@@ -236,6 +236,15 @@ void RGB_LED::stop()
     B_Future_value = B_Current_value;
 }
 
+void RGB_LED::delay(unsigned long delayValue)
+{
+    unsigned long currentLocalTime = millis();
+    while(currentLocalTime+delayValue>millis())
+    {
+        RGB_LED::run();
+    }
+}
+
 
 
 /******************* FUNCTIONS *******************/
