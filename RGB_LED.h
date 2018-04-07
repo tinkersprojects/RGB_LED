@@ -44,6 +44,7 @@ class RGB_LED
         void setRandom();
         void setColour(byte colour);
         void fadeToColour(byte colour,unsigned long speedValue);
+        void setFunctionCount(int FunctionCount);
         
         //GET
         unsigned long getSpeed();
@@ -51,7 +52,7 @@ class RGB_LED
         byte getFunction();
         byte getCurrentRValue();
         byte getCurrentGValue();
-        byte getCurrentRValue();
+        byte getCurrentBValue();
         int getFunctionCount();
 
         // CHECKING 

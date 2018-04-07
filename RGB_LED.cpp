@@ -145,10 +145,10 @@ void RGB_LED::setRandom()
     function=Random;
 }
 
-void RGB_LED::setPercentFade(float FadeValue)
+void RGB_LED::setPercentFade(float PercentFade)
 {
-    if(FadeValue>1)FadeValue=1;
-    if(FadeValue<0)FadeValue=0;
+    if(PercentFade>1)PercentFade=1;
+    if(PercentFade<0)PercentFade=0;
 
     double diff = double(PercentFade)*double(Speed);
     starting_time = millis()-diff;
@@ -195,7 +195,7 @@ byte RGB_LED::getCurrentGValue()
    return G_Current_value;
 }
 
-byte RGB_LED::getCurrentRValue()
+byte RGB_LED::getCurrentBValue()
 {
    return R_Current_value;
 }

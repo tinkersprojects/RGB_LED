@@ -1,31 +1,50 @@
 # RGB_LED Library
-
+ 
 
 ## Fuctions
 ### SETUP
 #### RGB_LED(byte pinR,byte pinG,byte pinB)
+
 ### SET 
 #### void set(byte Rvalue,byte Gvalue,byte Bvalue)
+
 #### void setSpeed(unsigned long speedValue)
+
 #### void setPercentFade(float FadeValue)
+
 #### void fadeTo(byte Rvalue,byte Gvalue,byte Bvalue,unsigned long speedValue)
+
 #### void setFunction(byte functionValue)
+
 #### void setRandom()
+
 #### void setColour(byte colour)
+
 #### void fadeToColour(byte colour,unsigned long speedValue)
+
 ### GET
 #### unsigned long getSpeed()
+
 #### float getPercentFade()
+
 #### byte getFunction()
+
 #### byte getCurrentRValue()
+
 #### byte getCurrentGValue()
+
 #### byte getCurrentRValue()
+
 #### int getFunctionCount()
+
 ### CHECKING 
 #### boolean hasFinished()
+
 ### COMMANDS 
 #### void run()
+
 #### void stop()
+
 #### void delay(unsigned long delayValue)
 
 ## Colours
@@ -39,13 +58,13 @@
 - Aqua
 
 ## Colour Functions
-- Random
-- Solid
-- Fade
-- FadeRandom
-- Step1
-- Step2
-- StepRandom
+- **Random:** this randomly fades betweens random colours at random speeds.
+- **Solid:** this stays at a set colour.
+- **Fade:** this fades betweens Red, Green and blue colours at a set speed.
+- **FadeRandom:** this fades betweens random colours at a set speeds.
+- **Step1:** this steps betweens Red, Green and blue colours at a set speed.
+- **Step2:** this steps betweens all colours at a set speed.
+- **StepRandom:** this steps betweens random colours at a set speeds.
 
 ## Example
 ### Example 1: Fade
