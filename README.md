@@ -85,7 +85,28 @@ void loop()
 }
 ```
 
-### Example 2: Set Speed
+### Example 2: Two LEDs
+
+```c++
+#include <RGB_LED.h>
+
+RGB_LED LED1(9,10,11);
+RGB_LED LED2(3,4,5);
+
+void setup() 
+{
+  LED1.setFunction(Fade);
+  LED2.setFunction(Step);
+}
+
+void loop() 
+{
+   LED1.run();
+   LED2.run();
+}
+```
+
+### Example 3: Set Speed
 
 ```c++
 #include <RGB_LED.h>
@@ -112,16 +133,16 @@ void loop()
    {
       speed--;
       LED.setSpeed(speed);
-      delay(10);
+      LED.delay(10);
    }
    if(digitalRead(upButtonPin)==HIGH && speed>20000)
    {
       speed++;
       LED.setSpeed(speed);
-      delay(10);
+      LED.delay(10);
    }
 }
 ```
 
-# To Do list
+## To Do list
 - 

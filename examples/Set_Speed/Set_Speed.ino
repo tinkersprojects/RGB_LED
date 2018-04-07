@@ -22,12 +22,12 @@ void loop()
    {
       speed--;
       LED.setSpeed(speed);
-      delay(10);
+      LED.delay(10);
    }
    if(digitalRead(upButtonPin)==HIGH && speed>20000)
    {
       speed++;
       LED.setSpeed(speed);
-      delay(10);
+      LED.delay(10);
    }
 }
