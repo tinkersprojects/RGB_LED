@@ -1,19 +1,19 @@
 # RGB_LED Library
  
 
-## Fuctions
+## Functions
 ### SETUP
 #### RGB_LED(byte pinR,byte pinG,byte pinB)
-
+This is the setup for the class, this is where the pins are declared for the RGB LED.
 ### SET 
 #### void set(byte Rvalue,byte Gvalue,byte Bvalue)
-
+This function sets a RGB colour. It will stop a fade to be the set color. *Rvalue*, *Gvalue* and *Bvalue* are used to set the RGB colour. These RGB Byte variables are the values between 0 and 255. 0 is the LED completely off, 255 is the LED Completely on and all values between is a PWM percent.
 #### void setSpeed(unsigned long speedValue)
-
+This Functions sets the speed of fades and the speed of colour functions. The speedValue is in milliseconds and is used from the start to the finish of the fade.
 #### void setPercentFade(float FadeValue)
-
+This function set the where the fade is. The *FadeValue* is a between 0 and 1. If the *FadeValue* is set to be 0.5 at 1000 speed the fade would continue from 50%. 
 #### void fadeTo(byte Rvalue,byte Gvalue,byte Bvalue,unsigned long speedValue)
-
+This function is used to fade from the current set colour to a RGB colour at a speed. *Rvalue*, *Gvalue* and *Bvalue* are used to set the RGB colour and *speedValue* is used to set the fade speed. These *Rvalue*, *Gvalue* and *Bvalue* Byte variables are the values between 0 and 255. 0 is the LED completely off, 255 is the LED Completely on and all values between is a PWM percent. The *speedValue* is in milliseconds and is used from the start to the finish of the fade.
 #### void setFunction(byte functionValue)
 
 #### void setRandom()
