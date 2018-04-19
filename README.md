@@ -9,43 +9,44 @@ This is the setup for the class, this is where the pins are declared for the RGB
 #### void set(byte Rvalue,byte Gvalue,byte Bvalue)
 This function sets a RGB colour. It will stop a fade to be the set color. *Rvalue*, *Gvalue* and *Bvalue* are used to set the RGB colour. These RGB Byte variables are the values between 0 and 255. 0 is the LED completely off, 255 is the LED Completely on and all values between is a PWM percent.
 #### void setSpeed(unsigned long speedValue)
-This Functions sets the speed of fades and the speed of colour functions. The speedValue is in milliseconds and is used from the start to the finish of the fade.
+This Functions sets the speed of fades and the speed of colour functions. The *speedValue* is in milliseconds and is used from the start to the finish of the fade.
 #### void setPercentFade(float FadeValue)
 This function set the where the fade is. The *FadeValue* is a between 0 and 1. If the *FadeValue* is set to be 0.5 at 1000 speed the fade would continue from 50%. 
 #### void fadeTo(byte Rvalue,byte Gvalue,byte Bvalue,unsigned long speedValue)
 This function is used to fade from the current set colour to a RGB colour at a speed. *Rvalue*, *Gvalue* and *Bvalue* are used to set the RGB colour and *speedValue* is used to set the fade speed. These *Rvalue*, *Gvalue* and *Bvalue* Byte variables are the values between 0 and 255. 0 is the LED completely off, 255 is the LED Completely on and all values between is a PWM percent. The *speedValue* is in milliseconds and is used from the start to the finish of the fade.
 #### void setFunction(byte functionValue)
-
+This function is used to select a LED colour function. All the LED's colour functions are listed below under *Colour Functions*
 #### void setRandom()
-
+This will make the LED fade to a random colour with a random fade speed.
 #### void setColour(byte colour)
-
+This will set the LED to a selected colour. The *colour* can be chosen from the colours list below.
 #### void fadeToColour(byte colour,unsigned long speedValue)
-
+This will make the LED fade to a selected colour with a selected fade speed. The *colour* can be chosen from the colours list below. The *speedValue* is in milliseconds and is used from the start to the finish of the fade. 
 ### GET
 #### unsigned long getSpeed()
-
+This will return the current set speed in milliseconds.
 #### float getPercentFade()
-
+This will return the current fade percent of completion.
 #### byte getFunction()
-
+This will return the current set function.
 #### byte getCurrentRValue()
-
+This will return the current Red value.
 #### byte getCurrentGValue()
-
-#### byte getCurrentRValue()
-
+This will return the current Green value.
+#### byte getCurrentBValue()
+This will return the current Blue value.
 #### int getFunctionCount()
-
+This will return the current functions step count.
 ### CHECKING 
 #### boolean hasFinished()
-
+This checks if the fade as finished and returns *true* when finished
 ### COMMANDS 
 #### void run()
-
+This function is required to run as much as possible. This function runs the calculates and the controls the PWM for the LED.
 #### void stop()
-
+This will stop all current fading and freeze the colour.
 #### void delay(unsigned long delayValue)
+This function is used in replacement of *Delay()*. This delay will continue to process the *run()* function.
 
 ## Colours
 - Black
@@ -143,6 +144,3 @@ void loop()
    }
 }
 ```
-
-## To Do list
-- 
