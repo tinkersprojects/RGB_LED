@@ -5,7 +5,7 @@ The library contains preset colours and fuctions to make it easier to construct 
 ## Functions
 ### SETUP
 #### RGB_LED(byte pinR,byte pinG,byte pinB)
-This is the setup for the class, this is where the pins are declared for the RGB LED.
+This is the setup for the class, this is where the pins are declared for the RGB LED. *pinR*, *pinG* and *pinB* is where the PWM pin numbers are placed.
 ### SET 
 #### void set(byte Rvalue,byte Gvalue,byte Bvalue)
 This function sets a RGB colour. It will stop a fade to be the set color. *Rvalue*, *Gvalue* and *Bvalue* are used to set the RGB colour. These RGB Byte variables are the values between 0 and 255. 0 is the LED completely off, 255 is the LED Completely on and all values between is a PWM percent.
