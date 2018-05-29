@@ -2,6 +2,15 @@
 RGB LEDs are used everywhere, in many different products and devices. This Arduino library is to the control RGB LED's colour and fading between colours. Almost every setting can be controlled though this library to control the RGB LEDs.
 The library contains preset colours and fuctions to make it easier to construct your RGB LED project.
 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=i7A1KCqNQHQ
+" target="_blank"><img src="http://img.youtube.com/vi/i7A1KCqNQHQ/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a> <a href="http://www.youtube.com/watch?feature=player_embedded&v=WD0Sz2w0R2Y
+" target="_blank"><img src="http://img.youtube.com/vi/WD0Sz2w0R2Y/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a> <a href="http://www.youtube.com/watch?feature=player_embedded&v=xD3Qw-6c8vk
+" target="_blank"><img src="http://img.youtube.com/vi/xD3Qw-6c8vk/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+
+
 ## Functions
 ### SETUP
 #### RGB_LED(byte pinR,byte pinG,byte pinB)
