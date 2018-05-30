@@ -10,6 +10,9 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a> <a href="h
 " target="_blank"><img src="http://img.youtube.com/vi/xD3Qw-6c8vk/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
+## circuit
+![circuit](https://github.com/tinkersprojects/RGB_LED/blob/master/images/circuit.png "circuit")
+
 
 ## Functions
 ### SETUP
