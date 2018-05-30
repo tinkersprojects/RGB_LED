@@ -11,6 +11,12 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a> <a href="h
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 ## circuit
+Any PWM pins can be used for and LED/LED color. Below is and example for pin 9 = red, pin 10 = green and pin 11 = blue. 
+
+```c++
+RGB_LED LED(9,10,11);
+```
+
 ![circuit](https://github.com/tinkersprojects/RGB_LED/blob/master/images/circuit.png "circuit")
 
 
