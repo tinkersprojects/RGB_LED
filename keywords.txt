@@ -16,22 +16,22 @@ stop	KEYWORD2
 #	KEYWORD3
 
 # Constants colours
-Black	Constants
-White	Constants
-Red	Constants
-Green	Constants
-Blue	Constants
-Yellow	Constants
-Purple	Constants
-Aqua	Constants
+Black	LITERAL1
+White	LITERAL1
+Red	LITERAL1
+Green	LITERAL1
+Blue	LITERAL1
+Yellow	LITERAL1
+Purple	LITERAL1
+Aqua	LITERAL1
 
 # Constants functions
-Random	Constants
-Solid	Constants
-Fade	Constants
-FadeRandom	Constants
-Step1	Constants
-Step2	Constants
-StepRandom	Constants
+Random	LITERAL1
+Solid	LITERAL1
+Fade	LITERAL1
+FadeRandom	LITERAL1
+Step1	LITERAL1
+Step2	LITERAL1
+StepRandom	LITERAL1
 
 #CommandReg	LITERAL1
