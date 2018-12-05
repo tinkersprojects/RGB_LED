@@ -1,5 +1,5 @@
 /**********************************************************************************************
- * Arduino LED RGB Library - Version 1.0
+ * Arduino LED RGB Library - Version 1.3
  * by William Bailes <williambailes@gmail.com> http://tinkersprojects.com/
  *
  * This Library is licensed under a GPLv3 License
