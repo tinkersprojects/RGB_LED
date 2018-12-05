@@ -28,13 +28,21 @@
 #define Step2 5
 #define StepRandom 6
 
+//PERCENT FUNCTION
+float linear(float x);
+float quadratic(float x);
+float cos(float x);
+float waveup(float x);
+float wavefaster(float x);
 
 class RGB_LED
 {
     public:
         // SETUP 
         RGB_LED(byte pinR,byte pinG,byte pinB);
-        
+        RGB_LED(bool inverted, byte pinR,byte pinG,byte pinB);
+        void setCallback(float (*CallBack)(float x));
+
         // SET 
         void set(byte Rvalue,byte Gvalue,byte Bvalue);
         void setSpeed(unsigned long speedValue);
@@ -60,6 +68,7 @@ class RGB_LED
         
         // COMMANDS 
         void run();
+        void runOff();
         void stop();
         void delay(unsigned long delayValue);
         
@@ -81,6 +90,9 @@ class RGB_LED
         unsigned long starting_time;
         int function=0;
         int count;
+        bool invertedPins=false;
+        
+        float (*FadeFunctionCallBack) (float x);
 
         void writeOutput();
         void FunctionsFinished();

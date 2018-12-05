@@ -13,8 +13,6 @@
 
 #include "RGB_LED.h"
 
-
-
 /******************* SETUP *******************/
 
 RGB_LED::RGB_LED(byte pinR,byte pinG,byte pinB)
@@ -25,9 +23,28 @@ RGB_LED::RGB_LED(byte pinR,byte pinG,byte pinB)
     pinMode(pinR, OUTPUT);
     pinMode(pinG, OUTPUT);
     pinMode(pinB, OUTPUT);
+
+    FadeFunctionCallBack = linear;
 }
 
+RGB_LED::RGB_LED(bool inverted, byte pinR,byte pinG,byte pinB)
+{
+    R_Pin = pinR;
+    G_Pin = pinG;
+    B_Pin = pinB;
+    pinMode(pinR, OUTPUT);
+    pinMode(pinG, OUTPUT);
+    pinMode(pinB, OUTPUT);
 
+    invertedPins = inverted;
+
+    FadeFunctionCallBack = linear;
+}
+
+void RGB_LED::setCallback(float (*callback)(float x)) 
+{
+    FadeFunctionCallBack = callback;
+}
 
 /******************* SET *******************/
 
@@ -218,9 +235,37 @@ void RGB_LED::run()
     unsigned long diff = millis()-starting_time;
     float PercentFade = double(diff)/double(Speed);
     if(PercentFade>1)PercentFade=1;
-    R_Current_value = R_Last_value+((R_Future_value - R_Last_value)*PercentFade);
-    G_Current_value = G_Last_value+((G_Future_value - G_Last_value)*PercentFade);
-    B_Current_value = B_Last_value+((B_Future_value - B_Last_value)*PercentFade);
+    PercentFade = FadeFunctionCallBack(PercentFade);
+    R_Current_value = ((R_Future_value - R_Last_value)* PercentFade)+R_Last_value; //R_Last_value+((R_Future_value - R_Last_value)*PercentFade);
+    G_Current_value = ((G_Future_value - G_Last_value)* PercentFade)+G_Last_value; //G_Last_value+((G_Future_value - G_Last_value)*PercentFade);
+    B_Current_value = ((B_Future_value - B_Last_value)* PercentFade)+B_Last_value; //B_Last_value+((B_Future_value - B_Last_value)*PercentFade);
+    
+    writeOutput();
+}
+
+
+void RGB_LED::runOff()
+{
+    if(function != Solid && RGB_LED::hasFinished()) RGB_LED::FunctionsFinished();
+    
+    unsigned long diff = millis()-starting_time;
+    float PercentFade = double(diff)/double(Speed);
+    if(PercentFade>1)PercentFade=1;
+    PercentFade = FadeFunctionCallBack(PercentFade);
+    if(PercentFade<0.5)
+    {
+        PercentFade = PercentFade*2;
+        R_Current_value = ((0 - R_Last_value)* PercentFade)+R_Last_value; //R_Last_value+((R_Future_value - R_Last_value)*PercentFade);
+        G_Current_value = ((0 - G_Last_value)* PercentFade)+G_Last_value; //G_Last_value+((G_Future_value - G_Last_value)*PercentFade);
+        B_Current_value = ((0 - B_Last_value)* PercentFade)+B_Last_value; //B_Last_value+((B_Future_value - B_Last_value)*PercentFade);
+    }
+    else
+    {
+        PercentFade = PercentFade*2-1;
+        R_Current_value = ((R_Future_value - 0)* PercentFade); //R_Last_value+((R_Future_value - R_Last_value)*PercentFade);
+        G_Current_value = ((G_Future_value - 0)* PercentFade); //G_Last_value+((G_Future_value - G_Last_value)*PercentFade);
+        B_Current_value = ((B_Future_value - 0)* PercentFade); //B_Last_value+((B_Future_value - B_Last_value)*PercentFade);
+    }
     
     writeOutput();
 }
@@ -251,9 +296,18 @@ void RGB_LED::delay(unsigned long delayValue)
 
 void RGB_LED::writeOutput()
 {
-    analogWrite(R_Pin,R_Current_value);
-    analogWrite(G_Pin,G_Current_value);
-    analogWrite(B_Pin,B_Current_value);
+    if(invertedPins == true)
+    {
+        analogWrite(R_Pin,255-R_Current_value);
+        analogWrite(G_Pin,255-G_Current_value);
+        analogWrite(B_Pin,255-B_Current_value);
+    }
+    else
+    {
+        analogWrite(R_Pin,R_Current_value);
+        analogWrite(G_Pin,G_Current_value);
+        analogWrite(B_Pin,B_Current_value);
+    }
 }
 
 void RGB_LED::FunctionsFinished()
@@ -394,3 +448,56 @@ void RGB_LED::StepRandomFunction()
     }
 }
 
+
+
+
+
+
+
+/******************* FADE FUNCTIONS *******************/
+
+float linear(float x)
+{
+    float y =  x;
+    if(y <= 0)return 0;
+    if(y >= 1)return 1;
+    return y;
+}
+
+float quadratic(float x)
+{
+    float y =  x*x;
+    if(y <= 0)return 0;
+    if(y >= 1)return 1;
+    return y;
+}
+
+float cos(float x)
+{
+    if(x <= 0)return 0;
+    if(x >= 1)return 1;
+    float y =  acos(x*2-1)/3.14;
+    if(y <= 0)return 0;
+    if(y >= 1)return 1;
+    return y;
+}
+
+float waveup(float x)
+{
+    if(x <= 0)return 0;
+    if(x >= 1)return 1;
+    float y = x * (1+ 2 * (sin(150 * x)*(1-x)));
+    if(y <= 0)return 0;
+    if(y >= 1)return 1;
+    return y;
+}
+
+float wavefaster(float x)
+{
+    if(x <= 0)return 0;
+    if(x >= 1)return 1;
+    float y = -0.5*( (cos(pow(100,x)-1))-1);
+    if(y <= 0)return 0;
+    if(y >= 1)return 1;
+    return y;
+}
