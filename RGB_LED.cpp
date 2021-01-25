@@ -214,7 +214,7 @@ byte RGB_LED::getCurrentGValue()
 
 byte RGB_LED::getCurrentBValue()
 {
-   return R_Current_value;
+   return B_Current_value;
 }
         
 /******************* CHECKING *******************/
