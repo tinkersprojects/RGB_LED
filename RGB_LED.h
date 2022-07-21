@@ -27,11 +27,12 @@
 #define Step1 4
 #define Step2 5
 #define StepRandom 6
+#define Blink 10
 
 //PERCENT FUNCTION
 float linear(float x);
 float quadratic(float x);
-float cos(float x);
+float cos2(float x);
 float waveup(float x);
 float wavefaster(float x);
 
@@ -76,6 +77,9 @@ class RGB_LED
         byte R_Pin;
         byte G_Pin;
         byte B_Pin;
+        byte R_Set_value;
+        byte G_Set_value;
+        byte B_Set_value;
         byte R_Last_value;
         byte G_Last_value;
         byte B_Last_value;
@@ -101,6 +105,7 @@ class RGB_LED
         void StepRGBWFunction();
         void StepAllFunction();
         void StepRandomFunction();
+        void BlinkFunction();
 };
 
 #endif 

@@ -66,6 +66,10 @@ void RGB_LED::fadeTo(byte Rvalue,byte Gvalue,byte Bvalue,unsigned long speedValu
 
 void RGB_LED::set(byte Rvalue,byte Gvalue,byte Bvalue)
 {
+    R_Set_value = Rvalue;
+    G_Set_value = Gvalue;
+    B_Set_value = Bvalue;
+
     R_Last_value = Rvalue;
     G_Last_value = Gvalue;
     B_Last_value = Bvalue;
@@ -331,6 +335,9 @@ void RGB_LED::FunctionsFinished()
         case StepRandom:
             RGB_LED::StepRandomFunction();
             break;
+        case Blink:
+            RGB_LED::BlinkFunction();
+            break;
       }
       
     function=currentfuction;
@@ -342,6 +349,20 @@ void RGB_LED::FunctionsFinished()
 
 
 /******************* COLOUR FUNCTIONS *******************/
+
+void RGB_LED::BlinkFunction()
+{
+    switch (count%4) {
+        case 0:
+            RGB_LED::fadeToColour(Black,Speed);
+            break;
+        default: 
+            RGB_LED::fadeTo(R_Set_value,G_Set_value,B_Set_value,Speed);
+            break;
+      }
+
+    count++;
+}
 
 void RGB_LED::FadeFunction()
 {
@@ -472,7 +493,7 @@ float quadratic(float x)
     return y;
 }
 
-float cos(float x)
+float cos2(float x)
 {
     if(x <= 0)return 0;
     if(x >= 1)return 1;
@@ -496,7 +517,7 @@ float wavefaster(float x)
 {
     if(x <= 0)return 0;
     if(x >= 1)return 1;
-    float y = -0.5*( (cos(pow(100,x)-1))-1);
+    float y = -0.5*( (cos2(pow(100,x)-1))-1);
     if(y <= 0)return 0;
     if(y >= 1)return 1;
     return y;
